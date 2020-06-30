@@ -11,5 +11,4 @@ jobs:
     steps:
     - name: echo test
       run: |
-        array = ${{ github.event.pull_request.labels }}
-        echo "${array[*]}"
+        echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
