@@ -1,0 +1,15 @@
+on:
+  pull_request:
+   types: [labeled]
+
+jobs:
+  request_colony:
+    name: Request a new colony when PR is labeled with 'beehive'
+    if: contains(github.event.pull_request.labels.*.name, 'beehive')
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: echo test
+      run: |
+        array = ${{ github.event.pull_request.labels }}
+        echo "${array[*]}"
