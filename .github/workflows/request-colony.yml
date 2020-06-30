@@ -12,3 +12,9 @@ jobs:
     - name: echo test
       run: |
         echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
+
+    - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: |
+          echo "$GITHUB_CONTEXT"
