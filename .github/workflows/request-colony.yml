@@ -15,9 +15,9 @@ jobs:
 
     - name: get PR description
       uses: actions/github-script@v2
-      env:
-        PR_HREF: toJson(github.event.pull_request.self.href)
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          console.log(context.payload.pull_request)
+          const diff_url = context.payload.pull_request.url
+          const result = await github.request(diff_url)
+          console.log(result)
