@@ -19,6 +19,20 @@
 				margin: 10px 0 0 0;
 			}
 
+			#prefill-form a {
+				opacity: 0.8;
+			}
+
+			#prefill-form a.active {
+				font-weight: bold;
+				opacity: 1;
+			}
+
+			#prefill-form #down-arrow {
+				margin: 10px;
+				font-size: 20px;
+			}
+
 			select {
 				margin-left: 5px;
 				padding: 3px 10px;
@@ -171,6 +185,11 @@
     margin: 15px 0 5px 17px;
     color: #444;}
 
+#colony-details input { margin: 5px 0px;
+    padding: 5px 10px;
+    width: 400px;
+    font-size: 13px;
+    font-weight: 200; }
 
 		</style>
 	</head>
@@ -180,24 +199,16 @@
 		</header>
 		<header id="config-header">
 			<div>
-				<h2>Manage Your Colony Name</h2>
+				<h2>Beehive</h2>
 				<p id="prefill-form">
-					<b>Status:</b> Needs Configuration<br />
-					<b>Configure from preset:</b>
-					<select>
-						<option>--select preset config--</option>
-						<option>default</option>
-						<option>tiny seed data</option>
-						<option>ongoing feature A work</option>
-					</select>
+					<a href="#" class="active">Services</a> &middot; <a href="#">Colonies</a>
+					<span id="down-arrow">ˬ</span>
 				</p>
 			</div>
 			<p id="colony-details">
-				<b>&raquo; &nbsp; Service:</b> <a href="">peer-poc-api</a><br />
-				<b>&raquo; &nbsp; Branch:</b> <a href="">update-readme</a><br />
-				<b>&raquo; &nbsp; Pull Request:</b> <a href="">#1 - Update README</a><br />
-				<b>&raquo; &nbsp; Live Link:</b> N/A<br />
-				<b>&raquo; &nbsp; Logs:</b> N/A
+				<b>&raquo; &nbsp; Colonies Configured:</b> 23<br />
+				<b>&raquo; &nbsp; Colonies Running:</b> 10<br />
+				<input type="text" placeholder="Search for services or colonies" />
 			</p>
 		</header>
 
