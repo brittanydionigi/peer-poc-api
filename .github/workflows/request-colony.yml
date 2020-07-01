@@ -22,6 +22,6 @@ jobs:
           const result = await github.request(pr_url)
           const description_text = result.data.body
           const beehive_text = "-------------------------------\n
-            <div id='beehive-status'>hey</div>"
+hey"
           const updated_pr_description = description_text + beehive_text
           console.log(updated_pr_description)
