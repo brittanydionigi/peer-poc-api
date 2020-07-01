@@ -20,6 +20,4 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const diff_url = env.PR_HREF
-          const result = await github.request(diff_url)
-          console.log(result)
+          console.log(context.payload.pull_request)
