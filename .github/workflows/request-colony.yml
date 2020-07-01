@@ -17,11 +17,7 @@ jobs:
     - uses: actions/github-script@v2
       id: beehive-text
       with:
-        script: return "-------------------------------
-<div id="beehive-status">
- <p><b>🐝 Beehive Status</b><br />
- <a href="">Default Configuration</a> | <a href="">Not Yet Running</a></p>
-</div>!"
+        script: return "-------------------------------\n<div id="beehive-status">\n<p><b>🐝 Beehive Status</b><br />\n<a href="">Default Configuration</a> | <a href="">Not Yet Running</a></p>\n</div>!"
         result-encoding: string
 
     - name: Get result
