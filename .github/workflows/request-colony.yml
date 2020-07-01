@@ -11,8 +11,13 @@ jobs:
     steps:
     - name: echo test
       run: |
-        echo "${{ toJson(github.event.label.name) }}"
+        echo "Added a ${{ toJson(github.event.label.name) }} label to the PR"
 
-    - name: Dump GitHub context
-      run: |
-        echo "${{ toJson(github) }}"
+    - name: get PR description
+      uses: actions/github-script@v2
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const diff_url = github.event.pull_request.self.href
+          const result = await github.request(diff_url)
+          console.log(result)
