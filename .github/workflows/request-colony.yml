@@ -13,13 +13,6 @@ jobs:
       run: |
         echo "Added a ${{ toJson(github.event.label.name) }} label to the PR"
 
-    - name: Set beehive text
-      uses: actions/github-script@v2
-      id: beehive-text
-      with:
-        script: return "-------------------------------\n<div id='beehive-status'>\n<p><b>Beehive Status</b><br />\n<a href=''>Default Configuration</a> | <a href=''>Not Yet Running</a></p>\n</div>!"
-        result-encoding: string
-
     - name: get PR description
       uses: actions/github-script@v2
       with:
@@ -28,6 +21,12 @@ jobs:
           const pr_url = context.payload.pull_request.url
           const result = await github.request(pr_url)
           const description_text = result.data.body
-          const beehive_text = "-------------------------------\n<div id='beehive-status'>\n<p><b>Beehive Status</b><br />\n<a href=''>Default Configuration</a> | <a href=''>Not Yet Running</a></p>\n</div>!"
+          const beehive_text = "\n\n\n-------------------------------\n<div id='beehive-status'>\n<p><b>Beehive Status</b><br />\n<a href=''>Default Configuration</a> | <a href=''>Not Yet Running</a></p>\n</div>!"
           const updated_pr_description = description_text + beehive_text
           console.log(updated_pr_description)
+          await github.pulls.update({
+            owner: 'brittanystoroz',
+            repo: 'peer-poc-api',
+            pull_number: 1,
+            body: updated_pr_description
+          });
