@@ -20,4 +20,4 @@ jobs:
         script: |
           const diff_url = context.payload.pull_request.url
           const result = await github.request(diff_url)
-          console.log(result)
+          console.log(result.data.body)
