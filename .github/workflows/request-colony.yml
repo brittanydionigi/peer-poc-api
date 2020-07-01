@@ -21,10 +21,6 @@ jobs:
           const pr_url = context.payload.pull_request.url
           const result = await github.request(pr_url)
           const description_text = result.data.body
-          const beehive_text = "-------------------------------
-            <div id='beehive-status'>
-              <p><b>🐝 Beehive Status</b><br />
-              <a href=''>Default Configuration</a> | <a href=''>Not Yet Running</a></p>
-            </div>"
+          const beehive_text = "hey!"
           const updated_pr_description = description_text + beehive_text
           console.log(updated_pr_description)
