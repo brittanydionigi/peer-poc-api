@@ -17,7 +17,8 @@ jobs:
       uses: actions/github-script@v2
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
+        pr-href: toJson(github.event.pull_request.self.href)
         script: |
-          const diff_url = toJson(github.event.pull_request.self.href)
+          const diff_url = ${{pr-href}}
           const result = await github.request(diff_url)
           console.log(result)
