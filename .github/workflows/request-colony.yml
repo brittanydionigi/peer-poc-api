@@ -18,6 +18,6 @@ jobs:
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
-          const diff_url = github.event.pull_request.self.href
+          const diff_url = toJson(github.event.pull_request.self.href)
           const result = await github.request(diff_url)
           console.log(result)
