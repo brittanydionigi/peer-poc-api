@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Colony Configuration</title>
+		<title>Hive Configuration</title>
 		<style type="text/css">
 			a:link, a:visited {
 				color: #5481a9;
@@ -180,7 +180,7 @@
 		</header>
 		<header id="config-header">
 			<div>
-				<h2>Manage Your Colony Name</h2>
+				<h2>Manage Your Hive</h2>
 				<p id="prefill-form">
 					<b>Status:</b> Needs Configuration<br />
 					<b>Configure from preset:</b>
@@ -208,15 +208,15 @@
 			<div id="main-configs">
 			<div class="field">
 				<label for="colony-name">
-					Colony Name:<br />
-					<p class="description">A descriptive name for your colony, that reflects the changes being QAed</p>
+					Hive Name:<br />
+					<p class="description">A descriptive name for your hive, that reflects the changes being QAed</p>
 					<input type="text" placeholder="Update README" />
 				</label>
 			</div>
 			<div class="field" id="infra-dependencies">
 				<label for="colony-data">
 					Infrastructure Dependencies:<br />
-					<p class="description">Select and configure any resources your colony will need to interact with</p></label>
+					<p class="description">Select and configure any resources your hive will need to interact with</p></label>
 
 					<label class="infra" for="redis"><input type="checkbox" id="redis" name="redis" value="true" /><span>Redis</span></label>
 					<label class="infra" for="postgres"><input type="checkbox" id="postgres" name="postgres" value="true" /><span>Postgres</span></label>
@@ -226,7 +226,7 @@
 			<div class="field" id="service-dependencies">
 				<label for="colony-services">
 					Service Communication:<br />
-					<p class="description">Select and configure any services your colony will need to communicate with. By default it will communicate with the stage instance of the selected service. If you'd rather communicate with a new or pre-existing colony for that service, click the 'edit' link after selecting the relevant service.</p>
+					<p class="description">Select and configure any services your hive will need to communicate with. By default it will communicate with the stage instance of the selected service. If you'd rather communicate with a new or pre-existing hive for that service, click the 'edit' link after selecting the relevant service.</p>
 
 					<label class="service" for="rise-com-accounts"><input type="checkbox" id="rise-com-accounts" name="rise-com-accounts" value="true" /><span>rise-com-accounts</span></label>
 					<label class="service" for="notify"><input type="checkbox" id="notify" name="notify" value="true" /><span>notify</span></label>
@@ -248,7 +248,7 @@
 		</div>
 		<div id="save-config">
 			<div id="config-options">
-			<label for="launch-immediately"><input type="checkbox" id="launch-immediately" name="launch" value="true" /><span>Launch colony on save</span></label>
+			<label for="launch-immediately"><input type="checkbox" id="launch-immediately" name="launch" value="true" /><span>Launch hive on save</span></label>
 			<label for="save-as-preset"><input type="checkbox" id="save-as-preset" name="save-preset" value="true" /><span>Store configuration as a new preset</span>
 			<input id="preset-config-name" type="text" placeholder="Configuration Preset Name" />
 			</label>
