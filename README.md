@@ -1,5 +1,6 @@
-# beehive-poc-api
+# apiary
 
-POC repo for beehive developer flow. Outlining processes for:
+POC repo for the apiary developer flow. Outlining:
 
-* Requesting a colony
+* requesting a hive
+* configuring a new hive
