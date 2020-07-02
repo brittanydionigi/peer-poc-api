@@ -5,10 +5,28 @@ on:
 jobs:
   request_colony:
     name: Request a new colony when PR is labeled with 'beehive'
-    if: contains(github.event.pull_request.labels.*.name, 'beehive')
+    if: github.event.label.name == 'beehive'
     runs-on: ubuntu-latest
     
     steps:
     - name: echo test
       run: |
-        echo "${{ toJson(github.event.pull_request.labels.*.name) }}"
+        echo "Added a ${{ toJson(github.event.label.name) }} label to the PR"
+
+    - name: get PR description
+      uses: actions/github-script@v2
+      with:
+        github-token: ${{secrets.GITHUB_TOKEN}}
+        script: |
+          const pr_url = context.payload.pull_request.url
+          const result = await github.request(pr_url)
+          const description_text = result.data.body
+          const beehive_text = "\n\n\n-------------------------------\n<div id='beehive-status'>\n<p><b>:bee: Beehive Status</b><br />\n<a href='https://brittanystoroz.github.io/peer-poc-api/colony-config.html' target='_blank'>Default Configuration</a> | <a href='' target='_blank'>Not Yet Running</a></p>\n</div>"
+          const updated_pr_description = description_text + beehive_text
+          console.log(updated_pr_description)
+          await github.pulls.update({
+            owner: 'brittanystoroz',
+            repo: 'peer-poc-api',
+            pull_number: 1,
+            body: updated_pr_description
+          });

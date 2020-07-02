@@ -1,2 +1,5 @@
-# peer-poc-api
-POC repo for Peer V2 developer flow
+# beehive-poc-api
+
+POC repo for beehive developer flow. Outlining processes for:
+
+* Requesting a colony
