@@ -27,6 +27,6 @@ jobs:
           await github.pulls.update({
             owner: 'brittanystoroz',
             repo: 'peer-poc-api',
-            pull_number: 1,
+            pull_number: 4,
             body: updated_pr_description
           });
